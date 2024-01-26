@@ -5,6 +5,7 @@ using OpenTelemetry.Trace;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddSingleton<LoggingOpenTelemetryListener>();
 builder.Services.AddOpenTelemetry()
     .ConfigureResource(resource => resource.AddService("dotnet-coded-instrumentation"))
     .WithTracing(tracingBuilder => tracingBuilder
